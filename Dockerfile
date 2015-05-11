@@ -5,8 +5,7 @@ ENV UID 1000
 ENV USER apache
 
 RUN useradd -u $UID -m -s /bin/bash $USER
-RUN yum -y updateinfo; yum clean all
-RUN yum -y install httpd; yum clean all
+RUN yum -y update; yum -y install httpd; yum clean all
 
 RUN chown -R $UID:$UID /var/www
 
