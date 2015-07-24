@@ -5,9 +5,8 @@ your non-related EEA projects.
 
 ### Supported tags and respective Dockerfile links
 
- - `:latest`
- - `:centos7` (apache 2.4.6)
- - `:centos6` (apache 2.2.15)
+  - `:latest`, `:2.4` (apache 2.4.6)
+ - `:2.2` (apache 2.2.15)
 
 
 ### Base docker image
@@ -27,13 +26,13 @@ your non-related EEA projects.
 
 ### How to use this image
         
-    $ docker run -it --rm -p 80:80 eeacms/httpd
+    $ docker run -it --rm -p 80:80 eeacms/apache
 
 
 ### Server configuration
 Build a Dockerfile with something similar:
 
-    FROM eeacms/httpd
+    FROM eeacms/apache
 
     ADD your-file.conf /etc/httpd/conf/httpd.conf
 
