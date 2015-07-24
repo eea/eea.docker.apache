@@ -5,8 +5,8 @@ your non-related EEA projects.
 
 ### Supported tags and respective Dockerfile links
 
-  - `:latest`, `:2.4` (apache 2.4.6)
- - `:2.2` (apache 2.2.15)
+  - `:2.4`, `:latest` (apache 2.4.6)
+  - `:2.2` (apache 2.2.15)
 
 
 ### Base docker image
