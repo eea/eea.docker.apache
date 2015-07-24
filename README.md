@@ -23,17 +23,35 @@ your non-related EEA projects.
 
 1. Install [Docker](https://www.docker.com/).
 
+## Usage
 
-### How to use this image
+
+### Run with Docker Compose
+
+Here is a basic example of a `docker-compose.yml` file using the `eeacms/apache` docker image:
+
+    apache:
+      image: eeacms/apache
+      volume:
+      - conf.d/virtual-host.conf:/:/etc/httpd/conf.d/vh-my-app.conf
+      ports:
+      - "80:80"
+      links:
+      - webapp
+
+    webapp:
+      image: razvan3895/nodeserver
+
+### Run it with Docker
         
-    $ docker run -it --rm -p 80:80 eeacms/apache
+    $ docker run -it --rm -v conf.d:/etc/httpd/conf.d -p 80:80 eeacms/apache
 
 
-### Server configuration
-Build a Dockerfile with something similar:
+### Extend it
+
+Build a `Dockerfile` with something similar:
 
     FROM eeacms/apache
-
     ADD your-file.conf /etc/httpd/conf/httpd.conf
 
 
