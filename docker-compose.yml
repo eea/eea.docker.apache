@@ -1,0 +1,18 @@
+apache:
+  build: .
+  volumes:
+  - conf.d/virtual-host.conf:/etc/httpd/conf.d/vh-apache.conf
+  ports:
+  - "80:80"
+  links:
+  - plone
+  env_file:
+  - apache.env
+
+zeo:
+  image: alteroo/zeoserver
+
+plone:
+  image: alteroo/plone-instance
+  links:
+  - zeo
