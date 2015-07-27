@@ -11,12 +11,12 @@ your non-related EEA projects.
 
 ### Base docker image
 
- - [hub.docker.com](https://registry.hub.docker.com/u/eeacms/httpd)
+ - [hub.docker.com](https://registry.hub.docker.com/u/eeacms/apache)
 
 
 ### Source code
 
-  - [github.com](http://github.com/eea/eea.docker.httpd)
+  - [github.com](http://github.com/eea/eea.docker.apache)
 
 
 ### Installation
@@ -43,8 +43,22 @@ Here is a basic example of a `docker-compose.yml` file using the `eeacms/apache`
       image: razvan3895/nodeserver
 
 ### Run it with Docker
-        
+
     $ docker run -it --rm -v conf.d:/etc/httpd/conf.d -p 80:80 eeacms/apache
+
+
+### Run it with environment variable set in apache.env
+
+* `SERVER_ADMIN` Email address of the Web server administrator
+* `SERVER_NAME` Specifies a hostname and port number (matching the Listen directive) for the server
+* `SERVER_ALIAS` Alternate names for a host used when matching requests to name-virtual hosts
+* `RewriteCond` Defines a condition under which rewriting will take place
+* `RewriteRule` Defines rules for the rewriting engine
+
+
+### Reload configuration file for Apache
+
+    $ docker exec <name-of-your-container> reload
 
 
 ### Extend it
@@ -52,7 +66,7 @@ Here is a basic example of a `docker-compose.yml` file using the `eeacms/apache`
 Build a `Dockerfile` with something similar:
 
     FROM eeacms/apache
-    ADD your-file.conf /etc/httpd/conf/httpd.conf
+    ADD your-file.conf /etc/httpd/conf.d/vh-my-app.conf
 
 
 ## Copyright and license

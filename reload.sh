@@ -1,3 +1,3 @@
 #!/bin/bash
 
-/usr/sbin/httpd -k restart
+/usr/sbin/httpd -k graceful
