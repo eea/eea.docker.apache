@@ -8,7 +8,7 @@ rm -rf /run/httpd/*
 CONFIG_FILE='/etc/httpd/conf.d/vh-my-app.conf'
 
 
-if [ -f /etc/httpd/conf.d/vh-* ]; then
+if [ -f /etc/httpd/conf.d/vh-*.conf ]; then
   echo 'Using mounted config file'
 else
   echo '<VirtualHost *:80>' > $CONFIG_FILE
