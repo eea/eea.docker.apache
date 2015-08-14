@@ -1,18 +1,21 @@
 apache:
-  build: .
-  volumes:
-  - conf.d/virtual-host.conf:/etc/httpd/conf.d/vh-apache.conf
+  image: eeacms/apache
   ports:
   - "80:80"
   links:
   - plone
-  env_file:
-  - apache.env
-
-zeo:
-  image: alteroo/zeoserver
+  environment:
+  - SERVER_ADMIN=helpdesk@plone.dev
+  - SERVER_NAME=plone.dev
+  - RewriteRule=^/(.*) http://plone/VirtualHostBase/http/plone.dev:80/VirtualHostRoot/$1 [P,L]
 
 plone:
-  image: alteroo/plone-instance
+  image: eeacms/plone
   links:
   - zeo
+  environment:
+  - BUILDOUT_ZEO_CLIENT=True
+  - BUILDOUT_ZEO_ADDRESS=zeo:8100
+
+zeo:
+  image: eeacms/zeoserver
