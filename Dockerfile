@@ -2,7 +2,7 @@ FROM centos:7
 MAINTAINER "Vitalie Maldur" <vitalie.maldur@eaudeweb.ro>
 MAINTAINER "Alin Voinea" <alin.voinea@eaudeweb.ro>
 
-ENV UID 1000
+ENV UID 500
 ENV USER apache
 
 RUN useradd -u $UID -m -s /bin/bash $USER
