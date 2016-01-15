@@ -5,10 +5,10 @@
 # if it thinks it is already running.
 rm -rf /run/httpd/*
 
-CONFIG_FILE='/etc/httpd/conf.d/vh-my-app.conf'
+CONFIG_FILE='/usr/local/apache2/conf/extra/vh-my-app.conf'
 
 
-if [ -f /etc/httpd/conf.d/vh-*.conf ]; then
+if [ -f /usr/local/apache2/conf/extra/vh-*.conf ]; then
   echo 'Using mounted config file'
 else
   echo '<VirtualHost *:80>' > $CONFIG_FILE
@@ -26,4 +26,16 @@ else
   echo '</VirtualHost>' >> $CONFIG_FILE
 fi
 
-exec /usr/sbin/apachectl -D FOREGROUND
+# needed for ssl support; server.crt and server.key files
+# are referenced in the default ssl configuration ("httpd-ssl.conf")
+if [ ! -f /usr/local/apache2/conf/server.crt -o \
+     ! -f /usr/local/apache2/conf/server.key ]; then
+  openssl req -x509 -nodes -newkey rsa:2048 \
+          -keyout /usr/local/apache2/conf/server.key \
+          -out /usr/local/apache2/conf/server.crt \
+          -subj "/C=../ST=./L=./O=./OU=./CN=localhost"
+  chown apache:apache /usr/local/apache2/conf/server.crt \
+                      /usr/local/apache2/conf/server.key
+fi
+
+exec /usr/local/bin/httpd-foreground

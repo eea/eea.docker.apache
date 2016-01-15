@@ -1,3 +1,3 @@
 #!/bin/bash
 
-/usr/sbin/httpd -k graceful
+/usr/local/apache2/bin/httpd -k graceful

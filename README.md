@@ -33,7 +33,7 @@ Here is a basic example of a `docker-compose.yml` file using the `eeacms/apache`
     apache:
       image: eeacms/apache
       volume:
-      - conf.d/virtual-host.conf:/:/etc/httpd/conf.d/vh-my-app.conf
+      - conf.d/virtual-host.conf:/usr/local/apache2/conf/extra/vh-my-app.conf
       ports:
       - "80:80"
       links:
@@ -44,7 +44,7 @@ Here is a basic example of a `docker-compose.yml` file using the `eeacms/apache`
 
 ### Run it with Docker
 
-    $ docker run -it --rm -v conf.d:/etc/httpd/conf.d -p 80:80 eeacms/apache
+    $ docker run -it --rm -v conf.d/virtual-host.conf:/usr/local/apache2/conf/extra/vh-my-app.conf -p 80:80 eeacms/apache
 
 
 ### Run it with environment variable set in apache.env
@@ -66,7 +66,7 @@ Here is a basic example of a `docker-compose.yml` file using the `eeacms/apache`
 Build a `Dockerfile` with something similar:
 
     FROM eeacms/apache
-    ADD your-file.conf /etc/httpd/conf.d/vh-my-app.conf
+    ADD your-file.conf /usr/local/apache2/conf/extra/vh-my-app.conf
 
 
 ## Copyright and license
