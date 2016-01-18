@@ -1,4 +1,4 @@
-## Generic Docker image for Apache HTTP server based on CentOS
+## Generic Docker image for Apache HTTP server
 
 This image is generic, thus you can obviously re-use it within
 your non-related EEA projects.
@@ -6,7 +6,7 @@ your non-related EEA projects.
 ### Warning
 
 Latest builds of this image is based on the official Apache image, which is Debian
-based instead of Centos. Please update your deployment accordingly.
+based instead of CentOS. Please update your deployment accordingly.
 
  - Debian Jessie
  - Apache 2.4
