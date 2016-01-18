@@ -32,9 +32,9 @@ RUN groupadd -g 400 apache && useradd -u 400 -g apache apache && \
 RUN sed -i 's|User daemon|User apache|' /usr/local/apache2/conf/httpd.conf && \
     sed -i 's|Group daemon|Group apache|' /usr/local/apache2/conf/httpd.conf
 
-ADD run-httpd.sh /run-httpd.sh
+ADD src/run-httpd.sh /run-httpd.sh
 RUN chmod -v +x /run-httpd.sh
-COPY reload.sh  /bin/reload
-RUN chmod a+x /bin/reload
+ADD src/reload.sh  /bin/reload
+RUN chmod -v +x /bin/reload
 
 CMD ["/run-httpd.sh"]
