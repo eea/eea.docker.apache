@@ -45,7 +45,7 @@ Here is a basic example of a `docker-compose.yml` file using the `eeacms/apache`
 
     apache:
       image: eeacms/apache
-      volume:
+      volumes:
       - conf.d/virtual-host.conf:/usr/local/apache2/conf/extra/vh-my-app.conf
       ports:
       - "80:80"
