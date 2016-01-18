@@ -11,11 +11,3 @@ apache:
 
 plone:
   image: eeacms/plone
-  links:
-  - zeo
-  environment:
-  - BUILDOUT_ZEO_CLIENT=True
-  - BUILDOUT_ZEO_ADDRESS=zeo:8100
-
-zeo:
-  image: eeacms/zeoserver

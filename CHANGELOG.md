@@ -1,11 +1,15 @@
 # Changelog
 
+## 2016-01-18
 
-## 2.4 (04-06-2015)
-
-- Apache 2.4.6
+- Switch to official httpd Docker image - Debian based (`:2.4s`)
 
 
-## 2.2 (11-05-2015)
+## 2015-06-04
 
-- Apache 2.2.15
+- Apache 2.4.6 (`:2.4`)
+
+
+## 2015-05-11
+
+- Apache 2.2.15 (`:2.2`)

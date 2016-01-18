@@ -3,11 +3,24 @@
 This image is generic, thus you can obviously re-use it within
 your non-related EEA projects.
 
+### Warning
+
+Latest builds of this image is based on the official Apache image, which is Debian
+based instead of Centos. Please update your deployment accordingly.
+
+ - Debian Jessie
+ - Apache 2.4
+
 ### Supported tags and respective Dockerfile links
 
-  - `:2.4`, `:latest` (apache 2.4.6)
-  - `:2.2` (apache 2.2.15)
+  - `:latest` [*Dockerfile*](https://github.com/eea/eea.docker.apache/blob/master/Dockerfile) (Debian Jessie - default)
+  - `:2.4s` [*Dockerfile*](https://github.com/eea/eea.docker.apache/blob/2.4s/Dockerfile) (Debian Jessie)
+  - `:2.4` [*Dockerfile*](https://github.com/eea/eea.docker.apache/blob/2.4/Dockerfile) (CentOS 7)
+  - `:2.2` [*Dockerfile*](https://github.com/eea/eea.docker.apache/blob/2.2/Dockerfile) (CentOS 6)
 
+### Changes
+
+ - [CHANGELOG.md](https://github.com/eea/eea.docker.apache/blob/master/CHANGELOG.md)
 
 ### Base docker image
 
@@ -40,7 +53,7 @@ Here is a basic example of a `docker-compose.yml` file using the `eeacms/apache`
       - webapp
 
     webapp:
-      image: razvan3895/nodeserver
+      image: eeacms/plone
 
 ### Run it with Docker
 
