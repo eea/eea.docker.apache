@@ -4,6 +4,8 @@
 
 - Switch to official httpd Docker image - Debian based (`:2.4s`)
 
+- Added chaperone process manager
+
 
 ## 2015-06-04
 

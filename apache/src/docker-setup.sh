@@ -37,5 +37,3 @@ if [ ! -f /usr/local/apache2/conf/server.crt -o \
   chown apache:apache /usr/local/apache2/conf/server.crt \
                       /usr/local/apache2/conf/server.key
 fi
-
-exec /usr/local/bin/httpd-foreground
