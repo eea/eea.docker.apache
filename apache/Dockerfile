@@ -15,6 +15,7 @@ RUN pip3 install chaperone
 RUN sed -i 's|#LoadModule rewrite_module|LoadModule rewrite_module|' /usr/local/apache2/conf/httpd.conf && \
     sed -i 's|#LoadModule proxy_module|LoadModule proxy_module|' /usr/local/apache2/conf/httpd.conf && \
     sed -i 's|#LoadModule proxy_http_module|LoadModule proxy_http_module|' /usr/local/apache2/conf/httpd.conf && \
+    sed -i 's|#LoadModule deflate_module modules/mod_deflate.so|LoadModule deflate_module modules/mod_deflate.so|' /usr/local/apache2/conf/httpd.conf && \
     sed -i 's|#Include conf/extra/httpd-autoindex.conf|Include conf/extra/httpd-autoindex.conf|' /usr/local/apache2/conf/httpd.conf && \
     echo 'IncludeOptional conf/extra/vh-*.conf' >> /usr/local/apache2/conf/httpd.conf && \
     # ldap:

@@ -1,5 +1,10 @@
 # Changelog
 
+## 2016-01-20
+
+- Enabled mod_deflate
+
+
 ## 2016-01-18
 
 - Switch to official httpd Docker image - Debian based (`:2.4s`)
