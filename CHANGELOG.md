@@ -1,5 +1,10 @@
 # Changelog
 
+## 2016-02-10
+
+- Changed chaperone's setup.service type to 'oneshot'
+
+
 ## 2016-01-20
 
 - Enabled mod_deflate
