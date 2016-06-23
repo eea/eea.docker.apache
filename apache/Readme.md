@@ -62,6 +62,7 @@ Here is a basic example of a `docker-compose.yml` file using the `eeacms/apache`
 
 ### Run it with environment variable set in apache.env
 
+* `CONFIG_URL` Provide external VH conf URL
 * `SERVER_ADMIN` Email address of the Web server administrator
 * `SERVER_NAME` Specifies a hostname and port number (matching the Listen directive) for the server
 * `SERVER_ALIAS` Alternate names for a host used when matching requests to name-virtual hosts

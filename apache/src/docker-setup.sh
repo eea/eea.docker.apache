@@ -5,12 +5,15 @@
 # if it thinks it is already running.
 rm -rf /run/httpd/*
 
-CONFIG_FILE='/usr/local/apache2/conf/extra/vh-my-app.conf'
+if [ ! -z "$CONFIG_URL" ]; then
+  curl -o /usr/local/apache2/conf/extra/vh-apache.conf -SL $CONFIG_URL
+fi
 
 
 if [ -f /usr/local/apache2/conf/extra/vh-*.conf ]; then
   echo 'Using mounted config file'
 else
+  CONFIG_FILE='/usr/local/apache2/conf/extra/vh-my-app.conf'
   echo '<VirtualHost *:80>' > $CONFIG_FILE
   echo "ServerAdmin $SERVER_ADMIN" >> $CONFIG_FILE
   echo "ServerName $SERVER_NAME" >> $CONFIG_FILE
