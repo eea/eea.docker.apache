@@ -6,7 +6,7 @@
 rm -rf /run/httpd/*
 
 if [ ! -z "$CONFIG_URL" ]; then
-  curl -o /usr/local/apache2/conf/extra/vh-apache.conf -SL $CONFIG_URL
+  curl -o /usr/local/apache2/conf/extra/vh-my-app.conf -SL $CONFIG_URL
 fi
 
 
