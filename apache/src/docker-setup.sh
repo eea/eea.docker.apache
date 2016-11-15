@@ -5,6 +5,18 @@
 # if it thinks it is already running.
 rm -rf /run/httpd/*
 
+if [ ! -z "$APACHE_MODULES" ]; then
+  for MOD in $APACHE_MODULES; do
+    sed -i 's|#LoadModule $MOD|LoadModule $MOD|' /usr/local/apache2/conf/httpd.conf
+  done
+fi
+
+if [ ! -z "$APACHE_INCLUDE" ]; then
+  for CONF in $APACHE_INCLUDE; do
+    sed -i 's|#Include $CONF|Include $CONF|' /usr/local/apache2/conf/httpd.conf
+  done
+fi
+
 if [ ! -z "$CONFIG_URL" ]; then
   curl -o /usr/local/apache2/conf/extra/vh-my-app.conf -SL $CONFIG_URL
 fi

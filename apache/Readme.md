@@ -62,12 +62,14 @@ Here is a basic example of a `docker-compose.yml` file using the `eeacms/apache`
 
 ### Run it with environment variable set in apache.env
 
-* `CONFIG_URL` Provide external VH conf URL
-* `SERVER_ADMIN` Email address of the Web server administrator
-* `SERVER_NAME` Specifies a hostname and port number (matching the Listen directive) for the server
-* `SERVER_ALIAS` Alternate names for a host used when matching requests to name-virtual hosts
-* `RewriteCond` Defines a condition under which rewriting will take place
-* `RewriteRule` Defines rules for the rewriting engine
+* `CONFIG_URL` Provide external VH conf URL (e.g. `CONFIG_URL=http://github.com/org/repo/vh-example.conf`)
+* `SERVER_ADMIN` Email address of the Web server administrator (e.g. `SERVER_ADMIN=contact@example.com`)
+* `SERVER_NAME` Specifies a hostname and port number (matching the Listen directive) for the server (e.g. `SERVER_NAME=www.example.com`)
+* `SERVER_ALIAS` Alternate names for a host used when matching requests to name-virtual hosts (e.g. `SERVER_ALIAS=example.com`)
+* `RewriteCond` Defines a condition under which rewriting will take place (e.g. `RewriteCond=%{HTTP_HOST} ^example\.com [NC]`)
+* `RewriteRule` Defines rules for the rewriting engine (e.g. `RewriteRule=^/(.*) http://haproxy:5000/VirtualHostBase/http/example.com:80/Plone/VirtualHostRoot/$1 [P,L]`)
+* `APACHE_MODULES` Load more apache modules, space separated (e.g. `APACHE_MODULES=file_cache_module cache_module cache_disk_module watchdog_module`)
+* `APACHE_INCLUDE` Include extra config files, space separated (e.g. `APACHE_INCLUDE=conf/extra/httpd-mpm.conf conf/extra/httpd-languages.conf`)
 
 
 ### Reload configuration file for Apache
