@@ -6,6 +6,7 @@ MAINTAINER "Daniel Marinovici" <daniel.marinovici@eaudeweb.ro>
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
       curl \
+      less \
       libaprutil1-ldap \
       openssl \
       python3-pip && \
