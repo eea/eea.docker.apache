@@ -7,13 +7,13 @@ rm -rf /run/httpd/*
 
 if [ ! -z "$APACHE_MODULES" ]; then
   for MOD in $APACHE_MODULES; do
-    sed -i 's|#LoadModule $MOD|LoadModule $MOD|' /usr/local/apache2/conf/httpd.conf
+    sed -i "s|#LoadModule $MOD|LoadModule $MOD|" /usr/local/apache2/conf/httpd.conf
   done
 fi
 
 if [ ! -z "$APACHE_INCLUDE" ]; then
   for CONF in $APACHE_INCLUDE; do
-    sed -i 's|#Include $CONF|Include $CONF|' /usr/local/apache2/conf/httpd.conf
+    sed -i "s|#Include $CONF|Include $CONF|" /usr/local/apache2/conf/httpd.conf
   done
 fi
 
@@ -23,9 +23,9 @@ fi
 
 
 if [ -f /usr/local/apache2/conf/extra/vh-*.conf ]; then
-  echo 'Using mounted config file'
+  echo "Using mounted config file"
 else
-  CONFIG_FILE='/usr/local/apache2/conf/extra/vh-my-app.conf'
+  CONFIG_FILE="/usr/local/apache2/conf/extra/vh-my-app.conf"
   echo '<VirtualHost *:80>' > $CONFIG_FILE
   echo "ServerAdmin $SERVER_ADMIN" >> $CONFIG_FILE
   echo "ServerName $SERVER_NAME" >> $CONFIG_FILE
