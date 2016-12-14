@@ -21,8 +21,8 @@ if [ ! -z "$CONFIG_URL" ]; then
   curl -o /usr/local/apache2/conf/extra/vh-my-app.conf -SL $CONFIG_URL
 fi
 
-
-if [ -f /usr/local/apache2/conf/extra/vh-*.conf ]; then
+EXISTS=`ls /usr/local/apache2/conf/extra/ | grep "vh-.*.conf"`
+if [ ! -z "$EXISTS" ]; then
   echo "Using mounted config file"
 else
   CONFIG_FILE="/usr/local/apache2/conf/extra/vh-my-app.conf"
