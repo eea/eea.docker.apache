@@ -14,7 +14,7 @@ based instead of CentOS. Please update your deployment accordingly.
 ### Supported tags and respective Dockerfile links
 
   - `:latest` [*Dockerfile*](https://github.com/eea/eea.docker.apache/blob/master/apache/Dockerfile) (Debian Jessie - default)
-  - `:2.4-1.0` [*Dockerfile*](https://github.com/eea/eea.docker.apache/tree/2.4-1.0/apache/Dockerfile) (Debian Jessie)
+  - `:2.4-1.0` [*Dockerfile*](https://github.com/eea/eea.docker.apache/tree/2.4-1.0/apache/Dockerfile)
 
 ### Changes
 
