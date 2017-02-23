@@ -1,20 +1,21 @@
-## Generic Docker image for Apache HTTP server
+## Apache HTTP server Docker image
 
 This image is generic, thus you can obviously re-use it within
 your non-related EEA projects.
 
-### Warning
+This image is generic, thus you can obviously re-use it within
+your non-related EEA projects.
 
-Latest builds of this image is based on the official Apache image, which is Debian
-based instead of CentOS. Please update your deployment accordingly.
-
- - Debian Jessie
- - Apache 2.4
+ - Debian: **Jessie**
+ - Apache: **2.4**
+ - Expose: **80**
 
 ### Supported tags and respective Dockerfile links
 
-  - `:latest` [*Dockerfile*](https://github.com/eea/eea.docker.apache/blob/master/apache/Dockerfile) (Debian Jessie - default)
-  - `:2.4-1.0` [*Dockerfile*](https://github.com/eea/eea.docker.apache/tree/2.4-1.0/apache/Dockerfile)
+  - `:latest` [*Dockerfile*](https://github.com/eea/eea.docker.apache/blob/master/apache/Dockerfile) - Debian: **Jessie**, Apache: **2.4**
+
+### Stable and immutable tags
+  - `:2.4-1.0` [*Dockerfile*](https://github.com/eea/eea.docker.apache/tree/2.4-1.0/apache/Dockerfile) - Apache: **2.4** Release: **1.0**
 
 ### Changes
 
@@ -22,7 +23,7 @@ based instead of CentOS. Please update your deployment accordingly.
 
 ### Base docker image
 
- - [hub.docker.com](https://registry.hub.docker.com/u/eeacms/apache)
+ - [hub.docker.com](https://hub.docker.com/r/eeacms/apache)
 
 
 ### Source code
@@ -33,6 +34,8 @@ based instead of CentOS. Please update your deployment accordingly.
 ### Installation
 
 1. Install [Docker](https://www.docker.com/).
+
+2. Install [Docker Compose](https://docs.docker.com/compose/).
 
 ## Usage
 
@@ -82,7 +85,7 @@ Here is a basic example of a `docker-compose.yml` file using the `eeacms/apache`
 
 Build a `Dockerfile` with something similar:
 
-    FROM eeacms/apache
+    FROM eeacms/apache:2.4-1.0
     ADD your-file.conf /usr/local/apache2/conf/extra/vh-my-app.conf
 
 
