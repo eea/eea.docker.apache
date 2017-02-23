@@ -1,5 +1,9 @@
 # Changelog
 
+## 2017-02-23
+
+- Release stable and immutable version 2.4-1.0
+
 ## 2016-02-10
 
 - Changed chaperone's setup.service type to 'oneshot'

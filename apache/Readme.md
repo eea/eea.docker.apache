@@ -13,10 +13,8 @@ based instead of CentOS. Please update your deployment accordingly.
 
 ### Supported tags and respective Dockerfile links
 
-  - `:latest` [*Dockerfile*](https://github.com/eea/eea.docker.apache/blob/master/Dockerfile) (Debian Jessie - default)
-  - `:2.4s` [*Dockerfile*](https://github.com/eea/eea.docker.apache/blob/2.4s/Dockerfile) (Debian Jessie)
-  - `:2.4` [*Dockerfile*](https://github.com/eea/eea.docker.apache/blob/2.4/Dockerfile) (CentOS 7)
-  - `:2.2` [*Dockerfile*](https://github.com/eea/eea.docker.apache/blob/2.2/Dockerfile) (CentOS 6)
+  - `:latest` [*Dockerfile*](https://github.com/eea/eea.docker.apache/blob/master/apache/Dockerfile) (Debian Jessie - default)
+  - `:2.4-1.0` [*Dockerfile*](https://github.com/eea/eea.docker.apache/tree/2.4-1.0/apache/Dockerfile) (Debian Jessie)
 
 ### Changes
 
@@ -43,17 +41,20 @@ based instead of CentOS. Please update your deployment accordingly.
 
 Here is a basic example of a `docker-compose.yml` file using the `eeacms/apache` docker image:
 
-    apache:
-      image: eeacms/apache
-      volumes:
-      - conf.d/virtual-host.conf:/usr/local/apache2/conf/extra/vh-my-app.conf
-      ports:
-      - "80:80"
-      links:
-      - webapp
-
-    webapp:
-      image: eeacms/plone
+    version: "2"
+    services:
+      apache:
+        image: eeacms/apache
+        ports:
+        - "80:80"
+        depends_on:
+        - plone
+        environment:
+          SERVER_ADMIN: "helpdesk@plone.dev"
+          SERVER_NAME: "plone.dev"
+          RewriteRule: "^/(.*) http://plone:8080/VirtualHostBase/http/plone.dev:80/VirtualHostRoot/$$1 [P,L]"
+      plone:
+        image: plone
 
 ### Run it with Docker
 
