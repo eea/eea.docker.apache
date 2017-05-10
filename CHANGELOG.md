@@ -6,6 +6,10 @@
 
 - Release alpine versions with `http2` support
 
+- Add Apache conf support via environment variable `APACHE_CONFIG`
+
+- Add SSL support via environment vars `APACHE_SSL_*`
+
 - Drop chaperone process manager
 
 ## 2017-02-23
