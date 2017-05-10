@@ -13,8 +13,8 @@ your non-related EEA projects.
 
 ### Supported tags and respective Dockerfile links
 
-  - `:latest` [*Dockerfile*](https://github.com/eea/eea.docker.apache/blob/master/apache/Dockerfile) - Debian: **Jessie**, Apache: **2.4**
-  - `:alpine` [*Dockerfile*](https://github.com/eea/eea.docker.apache/blob/master/apache/Dockerfile) - Alpine: **3.5**, Apache: **2.4**
+  - `:latest` [*Dockerfile*](https://github.com/eea/eea.docker.apache/blob/master/debian/Dockerfile) - Debian: **Jessie**, Apache: **2.4**
+  - `:alpine` [*Dockerfile*](https://github.com/eea/eea.docker.apache/blob/master/alpine/Dockerfile) - Alpine: **3.5**, Apache: **2.4**
 
 ### Stable and immutable tags
   - `:2.4-2.0` [*Dockerfile*](https://github.com/eea/eea.docker.apache/tree/2.4-2.0/debian/Dockerfile) -  Debian: **Jessie** Apache: **2.4** Release: **2.0**

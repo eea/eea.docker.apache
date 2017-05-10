@@ -1,7 +1,7 @@
 FROM httpd:2.4-alpine
 LABEL maintainer="EEA: IDM2 A-Team <eea-edw-a-team-alerts@googlegroups.com>"
 
-RUN runDeps="curl less apr-util-ldap openssl" \
+RUN runDeps="curl less apr-util-ldap openssl tzdata" \
  && apk add --no-cache $runDeps \
  && addgroup -g 400 apache \
  && adduser -S -D -G apache -u 400 apache \
