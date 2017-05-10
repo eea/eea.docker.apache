@@ -1,5 +1,13 @@
 # Changelog
 
+## 2017-05-10
+
+- Release stable and immutable version 2.4-2.0
+
+- Release alpine versions with `http2` support
+
+- Drop chaperone process manager
+
 ## 2017-02-23
 
 - Release stable and immutable version 2.4-1.0

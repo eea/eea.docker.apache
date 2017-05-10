@@ -1,14 +1,20 @@
 version: "2"
 services:
   apache:
-    image: eeacms/apache
+    image: eeacms/apache:2.4-2.0
     ports:
     - "80:80"
     depends_on:
     - plone
     environment:
-      SERVER_ADMIN: "helpdesk@plone.dev"
-      SERVER_NAME: "plone.dev"
-      RewriteRule: "^/(.*) http://plone:8080/VirtualHostBase/http/plone.dev:80/VirtualHostRoot/$$1 [P,L]"
+      APACHE_CONFIG: |-
+        <VirtualHost *:80>
+            ServerAdmin contact@localhost
+            ServerName localhost
+            ErrorLog /var/log/apache.log
+
+            RewriteEngine On
+            RewriteRule ^/(.*) http://plone:8080/VirtualHostBase/http/localhost:80/VirtualHostRoot/$$1 [P,L]
+        </VirtualHost>
   plone:
     image: plone

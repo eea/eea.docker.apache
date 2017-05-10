@@ -1,9 +1,17 @@
 #!/bin/bash
+set -e
 
+#
 # Make sure we're not confused by old, incompletely-shutdown httpd
 # context after restarting the container.  httpd won't start correctly
 # if it thinks it is already running.
+#
+
 rm -rf /run/httpd/*
+
+#
+# Apache extra modules
+#
 
 if [ ! -z "$APACHE_MODULES" ]; then
   for MOD in $APACHE_MODULES; do
@@ -17,20 +25,40 @@ if [ ! -z "$APACHE_INCLUDE" ]; then
   done
 fi
 
-if [ ! -z "$CONFIG_URL" ]; then
-  curl -o /usr/local/apache2/conf/extra/vh-my-app.conf -SL $CONFIG_URL
+#
+# Apache VH conf
+#
+if [ ! -z "$APACHE_CONFIG_URL" ]; then
+  curl -o /usr/local/apache2/conf/extra/vh-my-app.conf -SL "$APACHE_CONFIG_URL"
+else
+  # BBB
+  if [ ! -z "$CONFIG_URL" ]; then
+    curl -o /usr/local/apache2/conf/extra/vh-my-app.conf -SL "$CONFIG_URL"
+  fi
 fi
 
-EXISTS=`ls /usr/local/apache2/conf/extra/ | grep "vh-.*.conf"`
-if [ ! -z "$EXISTS" ]; then
-  echo "Using mounted config file"
-else
+if [ ! -z "$APACHE_CONFIG" ]; then
+  echo "$APACHE_CONFIG" > /usr/local/apache2/conf/extra/vh-my-app.conf
+fi
+
+EXISTS=$(ls /usr/local/apache2/conf/extra/ | grep "vh-.*.conf")
+if [ -z "$EXISTS" ]; then
   CONFIG_FILE="/usr/local/apache2/conf/extra/vh-my-app.conf"
   echo '<VirtualHost *:80>' > $CONFIG_FILE
-  echo "ServerAdmin $SERVER_ADMIN" >> $CONFIG_FILE
-  echo "ServerName $SERVER_NAME" >> $CONFIG_FILE
-  echo "ServerAlias $ServerAlias" >> $CONFIG_FILE
+  if [ ! -z "$SERVER_ADMIN" ]; then
+    echo "ServerAdmin $SERVER_ADMIN" >> $CONFIG_FILE
+  fi
+
+  if [ ! -z "$SERVER_NAME" ]; then
+    echo "ServerName $SERVER_NAME" >> $CONFIG_FILE
+  fi
+
+  if [ ! -z "$ServerAlias" ]; then
+    echo "ServerAlias $ServerAlias" >> $CONFIG_FILE
+  fi
+
   echo 'ErrorLog /var/log/apache.log' >> $CONFIG_FILE
+
   if [ ! -z "$RewriteRule" ]; then
     echo 'RewriteEngine On' >> $CONFIG_FILE
     if [ ! -z "$RewriteCond" ]; then
@@ -41,14 +69,35 @@ else
   echo '</VirtualHost>' >> $CONFIG_FILE
 fi
 
-# needed for ssl support; server.crt and server.key files
-# are referenced in the default ssl configuration ("httpd-ssl.conf")
+#
+# SSL
+#
+if [ ! -z "$APACHE_SSL_CERT" ]; then
+    echo "$APACHE_SSL_CERT" > /usr/local/apache2/conf/server.crt
+fi
+
+if [ ! -z "$APACHE_SSL_KEY" ]; then
+    echo "$APACHE_SSL_KEY" > /usr/local/apache2/conf/server.key
+fi
+
+if [ ! -z "$APACHE_SSL_CHAIN" ]; then
+    echo "$APACHE_SSL_CHAIN" > /usr/local/apache2/conf/server-chain.crt
+fi
+
+#
+# Default SSL if not provided via environment variables
+#
+
 if [ ! -f /usr/local/apache2/conf/server.crt -o \
      ! -f /usr/local/apache2/conf/server.key ]; then
   openssl req -x509 -nodes -newkey rsa:2048 \
           -keyout /usr/local/apache2/conf/server.key \
           -out /usr/local/apache2/conf/server.crt \
           -subj "/C=../ST=./L=./O=./OU=./CN=localhost"
-  chown apache:apache /usr/local/apache2/conf/server.crt \
-                      /usr/local/apache2/conf/server.key
 fi
+
+#
+# Run
+#
+chown -R apache:apache /usr/local/apache2
+exec "$@"
