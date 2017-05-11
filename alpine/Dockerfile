@@ -3,11 +3,8 @@ LABEL maintainer="EEA: IDM2 A-Team <eea-edw-a-team-alerts@googlegroups.com>"
 
 RUN runDeps="curl less apr-util-ldap openssl tzdata" \
  && apk add --no-cache $runDeps \
- && addgroup -g 400 apache \
- && adduser -S -D -G apache -u 400 apache \
- && chown -R apache:apache /usr/local/apache2 \
- && sed -i 's|User daemon|User apache|' /usr/local/apache2/conf/httpd.conf \
- && sed -i 's|Group daemon|Group apache|' /usr/local/apache2/conf/httpd.conf \
+ && sed -i 's|User daemon|User www-data|' /usr/local/apache2/conf/httpd.conf \
+ && sed -i 's|Group daemon|Group www-data|' /usr/local/apache2/conf/httpd.conf \
  && sed -i 's|#LoadModule rewrite_module|LoadModule rewrite_module|' /usr/local/apache2/conf/httpd.conf \
  && sed -i 's|#LoadModule proxy_module|LoadModule proxy_module|' /usr/local/apache2/conf/httpd.conf \
  && sed -i 's|#LoadModule proxy_http_module|LoadModule proxy_http_module|' /usr/local/apache2/conf/httpd.conf \

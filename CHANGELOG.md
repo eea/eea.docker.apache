@@ -1,6 +1,10 @@
 # Changelog
 
-## 2017-05-10
+## 2017-05-11 (2.4-2.1)
+
+- Cleanup: Remove `apache` user as there was already a dedicated one for Apache called `www-data`
+
+## 2017-05-10 (2.4-2.0)
 
 - Release stable and immutable version 2.4-2.0
 
@@ -12,7 +16,7 @@
 
 - Drop chaperone process manager
 
-## 2017-02-23
+## 2017-02-23 (2.4-1.0)
 
 - Release stable and immutable version 2.4-1.0
 

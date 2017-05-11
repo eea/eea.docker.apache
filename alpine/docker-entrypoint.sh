@@ -99,5 +99,5 @@ fi
 #
 # Run
 #
-chown -R apache:apache /usr/local/apache2
+chown -R www-data:www-data /usr/local/apache2
 exec "$@"

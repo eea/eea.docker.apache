@@ -6,10 +6,8 @@ RUN runDeps="curl less libaprutil1-ldap openssl" \
  && apt-get install -y --no-install-recommends $runDeps \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/* \
- && groupadd -g 400 apache && useradd -u 400 -g apache apache \
- && chown -R apache:apache /usr/local/apache2 \
- && sed -i 's|User daemon|User apache|' /usr/local/apache2/conf/httpd.conf \
- && sed -i 's|Group daemon|Group apache|' /usr/local/apache2/conf/httpd.conf \
+ && sed -i 's|User daemon|User www-data|' /usr/local/apache2/conf/httpd.conf \
+ && sed -i 's|Group daemon|Group www-data|' /usr/local/apache2/conf/httpd.conf \
  && sed -i 's|#LoadModule rewrite_module|LoadModule rewrite_module|' /usr/local/apache2/conf/httpd.conf \
  && sed -i 's|#LoadModule proxy_module|LoadModule proxy_module|' /usr/local/apache2/conf/httpd.conf \
  && sed -i 's|#LoadModule proxy_http_module|LoadModule proxy_http_module|' /usr/local/apache2/conf/httpd.conf \
