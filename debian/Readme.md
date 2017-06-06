@@ -3,9 +3,6 @@
 This image is generic, thus you can obviously re-use it within
 your non-related EEA projects.
 
-This image is generic, thus you can obviously re-use it within
-your non-related EEA projects.
-
  - Debian: **Jessie**
  - Alpine: **3.5**
  - Apache: **2.4**
