@@ -6,18 +6,18 @@ your non-related EEA projects.
 This image is generic, thus you can obviously re-use it within
 your non-related EEA projects.
 
- - Debian: **Jessie**
+ - Debian: **Stretch**
  - Alpine: **3.9**
  - Apache: **2.4**
  - Expose: **80**
 
 ### Supported tags and respective Dockerfile links
 
-  - `:latest` [*Dockerfile*](https://github.com/eea/eea.docker.apache/blob/master/debian/Dockerfile) - Debian: **Jessie**, Apache: **2.4**
+  - `:latest` [*Dockerfile*](https://github.com/eea/eea.docker.apache/blob/master/debian/Dockerfile) - Debian: **Stretch**, Apache: **2.4**
   - `:alpine` [*Dockerfile*](https://github.com/eea/eea.docker.apache/blob/master/alpine/Dockerfile) - Alpine: **3.9**, Apache: **2.4**
 
 ### Stable and immutable tags
-  - `:2.4-2.4` [*Dockerfile*](https://github.com/eea/eea.docker.apache/tree/2.4-2.4/debian/Dockerfile) -  Debian: **Jessie** Apache: **2.4** Release: **2.4**
+  - `:2.4-2.4` [*Dockerfile*](https://github.com/eea/eea.docker.apache/tree/2.4-2.4/debian/Dockerfile) -  Debian: **Stretch** Apache: **2.4** Release: **2.4**
   - `:2.4-2.4-alpine` [*Dockerfile*](https://github.com/eea/eea.docker.apache/tree/2.4-2.4-alpine/alpine/Dockerfile) - Alpine: **3.9** Apache: **2.4** Release: **2.4**
 
 See [older versions](https://github.com/eea/eea.docker.apache/releases)
