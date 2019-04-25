@@ -1,5 +1,9 @@
 # Changelog
 
+## 2019-04-25 (2.4-2.4)
+
+- Release 2.4
+
 ## 2017-05-11 (2.4-2.1)
 
 - Cleanup: Remove `apache` user as there was already a dedicated one for Apache called `www-data`
