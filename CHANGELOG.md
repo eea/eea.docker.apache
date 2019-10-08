@@ -1,5 +1,9 @@
 # Changelog
 
+# 2019-10-08 (2.4-2.6)
+
+- Configure proxy & combined logs to log both direct and proxy forwarded request client IPs.
+
 # 2019-07-04 (2.4-2.5)
 
 - Release 2.5

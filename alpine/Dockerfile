@@ -26,5 +26,11 @@ RUN runDeps="curl less apr-util-ldap openssl tzdata" \
 COPY docker-entrypoint.sh  /
 COPY reload.sh             /bin/reload
 
+# enable proxy formatted logs
+RUN  sed -i '/LogFormat.*common/a \    LogFormat \"%{X-Forwarded-For}i %l %u %t \\"%r\\" %>s %b \\"%{Referer}i\\" \\"%{User-Agent}i\\"" proxy' /usr/local/apache2/conf/httpd.conf \
+ &&  sed -i "$( grep -n CustomLog.*common /usr/local/apache2/conf/httpd.conf | cut -d: -f1)i\    SetEnvIf X-Forwarded-For \"^.*\..*\..*\..*\" forwarded" /usr/local/apache2/conf/httpd.conf \
+ &&  sed -i "$( grep -n CustomLog.*common /usr/local/apache2/conf/httpd.conf | cut -d: -f1)i\    CustomLog /proc/self/fd/1 combined env=\!forwarded" /usr/local/apache2/conf/httpd.conf \
+ &&  sed -i "$( grep -n CustomLog.*common /usr/local/apache2/conf/httpd.conf | cut -d: -f1)s/common/proxy env=forwarded/" /usr/local/apache2/conf/httpd.conf 
+
 ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["httpd-foreground"]

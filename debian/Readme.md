@@ -14,8 +14,8 @@ your non-related EEA projects.
   - `:alpine` [*Dockerfile*](https://github.com/eea/eea.docker.apache/blob/master/alpine/Dockerfile) - Alpine: **3.9**, Apache: **2.4**
 
 ### Stable and immutable tags
-  - `:2.4-2.5` [*Dockerfile*](https://github.com/eea/eea.docker.apache/tree/2.4-2.5/debian/Dockerfile) -  Debian: **Stretch** Apache: **2.4** Release: **2.5**
-  - `:2.4-2.5-alpine` [*Dockerfile*](https://github.com/eea/eea.docker.apache/tree/2.4-2.5-alpine/alpine/Dockerfile) - Alpine: **3.10** Apache: **2.5** Release: **2.5**
+  - `:2.4-2.6` [*Dockerfile*](https://github.com/eea/eea.docker.apache/tree/2.4-2.6/debian/Dockerfile) -  Debian: **Stretch** Apache: **2.4** Release: **2.6**
+  - `:2.4-2.6-alpine` [*Dockerfile*](https://github.com/eea/eea.docker.apache/tree/2.4-2.6-alpine/alpine/Dockerfile) - Alpine: **3.10** Apache: **2.6** Release: **2.6**
 
 See [older versions](https://github.com/eea/eea.docker.apache/releases)
 
@@ -50,7 +50,7 @@ Here is a basic example of a `docker-compose.yml` file using the `eeacms/apache`
     version: "2"
     services:
       apache:
-        image: eeacms/apache:2.4-2.5
+        image: eeacms/apache:2.4-2.6
         ports:
         - "80:80"
         depends_on:
