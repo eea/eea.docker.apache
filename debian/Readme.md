@@ -8,6 +8,8 @@ your non-related EEA projects.
  - Apache: **2.4.53**
  - Expose: **80**
 
+> **_NOTE:_** Debian Bullseye needs docker >= 18 in order to work. File permissions are not functional with older versions of docker. Use alpine version on hosts with older versions of docker.
+
 ### Supported tags and respective Dockerfile links
 
   - `:latest` [*Dockerfile*](https://github.com/eea/eea.docker.apache/blob/master/debian/Dockerfile) - Debian: **Bullseye**, Apache: **2.4.53**
