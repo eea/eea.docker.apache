@@ -41,7 +41,7 @@ if [ ! -z "$APACHE_CONFIG" ]; then
   echo "$APACHE_CONFIG" > /usr/local/apache2/conf/extra/vh-my-app.conf
 fi
 
-EXISTS=$(ls /usr/local/apache2/conf/extra/ | grep "vh-.*.conf")
+EXISTS=$(ls /usr/local/apache2/conf/extra/ | grep "vh-.*.conf" || echo "")
 if [ -z "$EXISTS" ]; then
   CONFIG_FILE="/usr/local/apache2/conf/extra/vh-my-app.conf"
   echo '<VirtualHost *:80>' > $CONFIG_FILE
