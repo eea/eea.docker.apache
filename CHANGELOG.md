@@ -1,5 +1,11 @@
 # Changelog
 
+# 2022-11-16 (2.4-2.9)
+
+- Apache 2.4.54
+- Rollback to debian:10 and alpine:3.13 to be compatible with rancher 1.6
+- Fix grep bug
+
 # 2019-10-08 (2.4-2.6)
 
 - Configure proxy & combined logs to log both direct and proxy forwarded request client IPs.
