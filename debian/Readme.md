@@ -16,8 +16,8 @@ your non-related EEA projects.
   - `:alpine` [*Dockerfile*](https://github.com/eea/eea.docker.apache/blob/master/alpine/Dockerfile) - Alpine: **3.13**, Apache: **2.4.54**
 
 ### Stable and immutable tags
-  - `:2.4-2.8` [*Dockerfile*](https://github.com/eea/eea.docker.apache/tree/2.4-2.8/debian/Dockerfile) -  Debian: **Buster** Apache: **2.4.54** Release: **2.8**
-  - `:2.4-2.8-alpine` [*Dockerfile*](https://github.com/eea/eea.docker.apache/tree/2.4-2.8-alpine/alpine/Dockerfile) - Alpine: **3.13** Apache: **2.4.54** Release: **2.8**
+  - `:2.4-2.9` [*Dockerfile*](https://github.com/eea/eea.docker.apache/tree/2.4-2.9/debian/Dockerfile) -  Debian: **Buster** Apache: **2.4.54** Release: **2.9**
+  - `:2.4-2.9-alpine` [*Dockerfile*](https://github.com/eea/eea.docker.apache/tree/2.4-2.9-alpine/alpine/Dockerfile) - Alpine: **3.13** Apache: **2.4.54** Release: **2.9**
 
 See [older versions](https://github.com/eea/eea.docker.apache/releases)
 
