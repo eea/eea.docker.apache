@@ -5,19 +5,19 @@ your non-related EEA projects.
 
  - Debian: **Buster**
  - Alpine: **3.13**
- - Apache: **2.4.54**
+ - Apache: **2.4.57**
  - Expose: **80**
 
 > **_NOTE:_** Debian Bullseye needs docker >= 18 in order to work. File permissions are not functional with older versions of docker. Use alpine version on hosts with older versions of docker.
 
 ### Supported tags and respective Dockerfile links
 
-  - `:latest` [*Dockerfile*](https://github.com/eea/eea.docker.apache/blob/master/debian/Dockerfile) - Debian: **Buster**, Apache: **2.4.54**
-  - `:alpine` [*Dockerfile*](https://github.com/eea/eea.docker.apache/blob/master/alpine/Dockerfile) - Alpine: **3.13**, Apache: **2.4.54**
+  - `:latest` [*Dockerfile*](https://github.com/eea/eea.docker.apache/blob/master/debian/Dockerfile) - Debian: **Buster**, Apache: **2.4.57**
+  - `:alpine` [*Dockerfile*](https://github.com/eea/eea.docker.apache/blob/master/alpine/Dockerfile) - Alpine: **3.13**, Apache: **2.4.57**
 
 ### Stable and immutable tags
-  - `:2.4-2.9` [*Dockerfile*](https://github.com/eea/eea.docker.apache/tree/2.4-2.9/debian/Dockerfile) -  Debian: **Buster** Apache: **2.4.54** Release: **2.9**
-  - `:2.4-2.9-alpine` [*Dockerfile*](https://github.com/eea/eea.docker.apache/tree/2.4-2.9-alpine/alpine/Dockerfile) - Alpine: **3.13** Apache: **2.4.54** Release: **2.9**
+  - `:2.4-3.0` [*Dockerfile*](https://github.com/eea/eea.docker.apache/tree/2.4-3.0/debian/Dockerfile) -  Debian: **Buster** Apache: **2.4.57** Release: **3.0**
+  - `:2.4-3.0-alpine` [*Dockerfile*](https://github.com/eea/eea.docker.apache/tree/2.4-3.0-alpine/alpine/Dockerfile) - Alpine: **3.13** Apache: **2.4.57** Release: **3.0**
 
 See [older versions](https://github.com/eea/eea.docker.apache/releases)
 
