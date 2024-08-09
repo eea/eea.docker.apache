@@ -3,8 +3,8 @@
 This image is generic, thus you can obviously re-use it within
 your non-related EEA projects.
 
- - Debian: **Bookworm**
- - Alpine: **3.20**
+ - Debian: **Bullseye**
+ - Alpine: **3.19**
  - Apache: **2.4.62**
  - Expose: **80**
 
@@ -12,14 +12,12 @@ your non-related EEA projects.
 
 ### Supported tags and respective Dockerfile links
 
-  - `:latest` [*Dockerfile*](https://github.com/eea/eea.docker.apache/blob/master/debian/Dockerfile) - Debian: **Bookworm**, Apache: **2.4.62**
-  - `:alpine` [*Dockerfile*](https://github.com/eea/eea.docker.apache/blob/master/alpine/Dockerfile) - Alpine: **3.20**, Apache: **2.4.62**
+  - `:latest` [*Dockerfile*](https://github.com/eea/eea.docker.apache/blob/master/debian/Dockerfile) - Debian: **Bullseye**, Apache: **2.4.62**
+  - `:alpine` [*Dockerfile*](https://github.com/eea/eea.docker.apache/blob/master/alpine/Dockerfile) - Alpine: **3.19**, Apache: **2.4.62**
 
 ### Stable and immutable tags
-  - `:2.4-3.2` [*Dockerfile*](https://github.com/eea/eea.docker.apache/tree/2.4-3.2/debian/Dockerfile) -  Debian: **Bookworm** Apache: **2.4.62** Release: **3.2**
-  - `:2.4-3.2-alpine` [*Dockerfile*](https://github.com/eea/eea.docker.apache/tree/2.4-3.2-alpine/alpine/Dockerfile) - Alpine: **3.20** Apache: **2.4.62** Release: **3.2**
-  - `:2.4-3.1` [*Dockerfile*](https://github.com/eea/eea.docker.apache/tree/2.4-3.1/debian/Dockerfile) -  Debian: **Buster** Apache: **2.4.58** Release: **3.1**
-  - `:2.4-3.1-alpine` [*Dockerfile*](https://github.com/eea/eea.docker.apache/tree/2.4-3.1-alpine/alpine/Dockerfile) - Alpine: **3.13** Apache: **2.4.58** Release: **3.1**
+  - `:2.4-3.3` [*Dockerfile*](https://github.com/eea/eea.docker.apache/tree/2.4-3.3/debian/Dockerfile) -  Debian: **Bullseye** Apache: **2.4.62** Release: **3.3**
+  - `:2.4-3.3-alpine` [*Dockerfile*](https://github.com/eea/eea.docker.apache/tree/2.4-3.3-alpine/alpine/Dockerfile) - Alpine: **3.19** Apache: **2.4.62** Release: **3.3**
 
 See [older versions](https://github.com/eea/eea.docker.apache/releases)
 
