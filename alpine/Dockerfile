@@ -1,8 +1,7 @@
-FROM alpine:3.13
+FROM alpine:3.19
 
 # ensure www-data user exists
 RUN set -x \
-        && addgroup -g 82 -S www-data \
 	&& adduser -u 82 -D -S -G www-data www-data
 # 82 is the standard uid/gid for "www-data" in Alpine
 # https://git.alpinelinux.org/cgit/aports/tree/main/apache2/apache2.pre-install?h=v3.14.0
@@ -27,9 +26,10 @@ RUN set -eux; \
 		perl \
 	;
 
-ENV HTTPD_VERSION 2.4.58
-ENV HTTPD_SHA256 fa16d72a078210a54c47dd5bef2f8b9b8a01d94909a51453956b3ec6442ea4c5
+ENV HTTPD_VERSION 2.4.62
+ENV HTTPD_SHA256 674188e7bf44ced82da8db522da946849e22080d73d16c93f7f4df89e25729ec
 
+# https://httpd.apache.org/security/vulnerabilities_24.html
 ENV HTTPD_PATCHES=""
 
 # see https://httpd.apache.org/docs/2.4/install.html#requirements
