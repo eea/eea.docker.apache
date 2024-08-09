@@ -236,7 +236,6 @@ COPY httpd-foreground /usr/local/bin/
 
 EXPOSE 80
 
-
 LABEL maintainer="EEA: IDM2 A-Team <eea-edw-a-team-alerts@googlegroups.com>"
 
 RUN runDeps="curl less libaprutil1-ldap openssl ca-certificates" \
