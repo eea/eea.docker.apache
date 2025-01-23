@@ -3,7 +3,7 @@
 This image is generic, thus you can obviously re-use it within
 your non-related EEA projects.
 
- - Debian: **Bullseye**
+ - Debian: **Bookworm**
  - Alpine: **3.19**
  - Apache: **2.4.62**
  - Expose: **80**
@@ -12,7 +12,7 @@ your non-related EEA projects.
 
 ### Supported tags and respective Dockerfile links
 
-  - `:latest` [*Dockerfile*](https://github.com/eea/eea.docker.apache/blob/master/debian/Dockerfile) - Debian: **Bullseye**, Apache: **2.4.62**
+  - `:latest` [*Dockerfile*](https://github.com/eea/eea.docker.apache/blob/master/debian/Dockerfile) - Debian: **Bookworm**, Apache: **2.4.62**
   - `:alpine` [*Dockerfile*](https://github.com/eea/eea.docker.apache/blob/master/alpine/Dockerfile) - Alpine: **3.19**, Apache: **2.4.62**
 
 ### Stable and immutable tags
