@@ -3,11 +3,42 @@ pipeline {
 
   environment {
     GIT_NAME = "eea.docker.apache"
+    registry = "eeacms/apache"
   }
 
   
   stages {
  
+    stage('Build & Push ( on tag )') {
+      when {
+        anyOf {
+          buildingTag()
+          branch 'master'
+        }
+      }
+      steps{
+        node(label: 'docker-big-jobs') {
+          script {
+            checkout scm
+            if (env.BRANCH_NAME == 'master') {
+              tagName = 'latest'
+            } else {
+              tagName = "$BRANCH_NAME"
+            }
+            try {
+              dockerImage = docker.build("$registry:$tagName", "--no-cache .")
+              docker.withRegistry( '', 'eeajenkins' ) {
+                dockerImage.push()
+              }
+            } finally {
+              sh "docker rmi $registry:$tagName"
+            }
+          }
+        }
+      }
+    }
+
+    
     stage('Release on tag creation') {
       when {
         buildingTag()
