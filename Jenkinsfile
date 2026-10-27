@@ -23,7 +23,7 @@ pipeline {
             if (env.BRANCH_NAME == 'master') {
               tagName = 'latest'
             } else {
-              tagName = "$BRANCH_NAME"
+              tagName = "$BRANCH_NAME".toLowerCase()
             }
             // build under a unique tag so the tests run on this build, never on a pulled image
             buildTag = "$tagName-build$BUILD_NUMBER"
