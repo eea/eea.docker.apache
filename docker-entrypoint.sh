@@ -2,14 +2,6 @@
 set -e
 
 #
-# Make sure we're not confused by old, incompletely-shutdown httpd
-# context after restarting the container.  httpd won't start correctly
-# if it thinks it is already running.
-#
-
-rm -rf /run/httpd/*
-
-#
 # Apache extra modules
 #
 
@@ -90,14 +82,22 @@ fi
 
 if [ ! -f /usr/local/apache2/conf/server.crt -o \
      ! -f /usr/local/apache2/conf/server.key ]; then
-  openssl req -x509 -nodes -newkey rsa:2048 \
+  openssl req -x509 -nodes -quiet -newkey rsa:2048 \
           -keyout /usr/local/apache2/conf/server.key \
           -out /usr/local/apache2/conf/server.crt \
-          -subj "/C=../ST=./L=./O=./OU=./CN=localhost"
+          -subj "/C=../ST=./L=./O=./OU=./CN=localhost" \
+          -addext "basicConstraints=critical,CA:FALSE" \
+          -addext "subjectAltName=DNS:localhost"
 fi
+
+#
+# Config and keys stay root-owned (the master reads them before dropping
+# privileges); only the logs dir is writable by the www-data workers.
+#
+chmod 600 /usr/local/apache2/conf/server.key 2>/dev/null || true
+chown -R www-data:www-data /usr/local/apache2/logs
 
 #
 # Run
 #
-chown -R www-data:www-data /usr/local/apache2
 exec "$@"
