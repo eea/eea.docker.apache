@@ -3,15 +3,16 @@
 This image is generic, thus you can obviously re-use it within
 your non-related EEA projects.
 
- - Alpine: **3.19**
- - Apache: **2.4.63**
+ - Alpine: **3.24**
+ - Apache: **2.4.69**
  - Expose: **80**
 
 ### Supported tags and respective Dockerfile links
 
- - `:latest` [*Dockerfile*](https://github.com/eea/eea.docker.apache/blob/master/Dockerfile) - Alpine: **3.19**, Apache: **2.4.63**
+ - `:latest` [*Dockerfile*](https://github.com/eea/eea.docker.apache/blob/master/Dockerfile) - Alpine: **3.24**, Apache: **2.4.69**
 
 ### Stable and immutable tags
+  - `:2.4-3.5` [*Dockerfile*](https://github.com/eea/eea.docker.apache/tree/2.4-3.3-alpine/alpine/Dockerfile) - Alpine: **3.24** Apache: **2.4.69**
   - `:2.4-3.4` [*Dockerfile*](https://github.com/eea/eea.docker.apache/tree/2.4-3.3-alpine/alpine/Dockerfile) - Alpine: **3.19** Apache: **2.4.63**
 
 See [older versions](https://github.com/eea/eea.docker.apache/releases)
